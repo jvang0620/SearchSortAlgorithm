@@ -139,7 +139,7 @@ public class app {
         int[] array = new int[size];
 
         for (int i = 0; i < size; i++) {
-            array[i] = random.nextInt(200) + 1; // Generates a random number between 1 and 200
+            array[i] = random.nextInt(size) + 1; // Generates a random number between 1 and 200
         }
 
         System.out.println("\nGenerated Array: " + Arrays.toString(array));
