@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-import src.helperInterface.SortingAlgorithmInterface;
-import src.helperInterface.SearchingAlgorithmInterface;
 import src.sort_algorithms.*;
+import src.algorithmsInterface.SearchingAlgorithmInterface;
+import src.algorithmsInterface.SortingAlgorithmInterface;
 import src.search_algorithms.*;
 
 public class app {

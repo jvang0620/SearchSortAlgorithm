@@ -1,7 +1,8 @@
 package src.search_algorithms;
 
-import src.helperInterface.SearchingAlgorithmInterface;
 import java.util.Arrays;
+
+import src.algorithmsInterface.SearchingAlgorithmInterface;
 
 public class InterpolationSearch implements SearchingAlgorithmInterface {
     // Time Complexity: O(log log n) - Expected logarithmic time complexity for

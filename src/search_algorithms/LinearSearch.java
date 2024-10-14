@@ -1,6 +1,6 @@
 package src.search_algorithms;
 
-import src.helperInterface.SearchingAlgorithmInterface;
+import src.algorithmsInterface.SearchingAlgorithmInterface;
 
 public class LinearSearch implements SearchingAlgorithmInterface {
     // LinearSearch

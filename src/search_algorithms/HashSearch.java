@@ -1,7 +1,8 @@
 package src.search_algorithms;
 
-import src.helperInterface.SearchingAlgorithmInterface;
 import java.util.HashMap;
+
+import src.algorithmsInterface.SearchingAlgorithmInterface;
 
 public class HashSearch implements SearchingAlgorithmInterface {
     // Time Complexity: O(n) - Linear time complexity in the worst case, depending

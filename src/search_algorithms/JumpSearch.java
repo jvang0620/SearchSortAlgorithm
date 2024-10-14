@@ -1,7 +1,8 @@
 package src.search_algorithms;
 
-import src.helperInterface.SearchingAlgorithmInterface;
 import java.util.Arrays;
+
+import src.algorithmsInterface.SearchingAlgorithmInterface;
 
 public class JumpSearch implements SearchingAlgorithmInterface {
     // Time Complexity: O(√n) - Square root of the array size, making it more

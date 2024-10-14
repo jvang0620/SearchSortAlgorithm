@@ -1,7 +1,8 @@
 package src.search_algorithms;
 
-import src.helperInterface.SearchingAlgorithmInterface;
 import java.util.Arrays;
+
+import src.algorithmsInterface.SearchingAlgorithmInterface;
 
 public class TernarySearch implements SearchingAlgorithmInterface {
     // Time Complexity: O(log3 n) - Logarithmic time complexity, dividing the search

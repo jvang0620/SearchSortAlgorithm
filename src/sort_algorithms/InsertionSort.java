@@ -1,6 +1,6 @@
 package src.sort_algorithms;
 
-import src.helperInterface.SortingAlgorithmInterface;
+import src.algorithmsInterface.SortingAlgorithmInterface;
 
 /**
  * Implementation of the Insertion Sort algorithm.

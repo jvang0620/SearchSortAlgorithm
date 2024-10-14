@@ -1,7 +1,8 @@
 package src.search_algorithms;
 
-import src.helperInterface.SearchingAlgorithmInterface;
 import java.util.Arrays;
+
+import src.algorithmsInterface.SearchingAlgorithmInterface;
 
 public class FibonacciSearch implements SearchingAlgorithmInterface {
     // Time Complexity: O(log n) - Logarithmic time complexity, similar to binary

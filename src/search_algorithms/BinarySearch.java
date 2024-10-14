@@ -1,7 +1,8 @@
 package src.search_algorithms;
 
 import java.util.Arrays;
-import src.helperInterface.SearchingAlgorithmInterface;
+
+import src.algorithmsInterface.SearchingAlgorithmInterface;
 
 public class BinarySearch implements SearchingAlgorithmInterface {
     // Binary Search
