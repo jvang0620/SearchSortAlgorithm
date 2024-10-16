@@ -18,9 +18,17 @@ public class app {
             System.out.print("\nEnter the size of the array: ");
             int size = scanner.nextInt();
 
-            int[] array = generateRandomArray(size);
+            // Ask user for the range of the array elements
+            System.out.print("Enter the minimum value for the array: ");
+            int min = scanner.nextInt();
 
-            System.out.println("\nDo you want to sort or search the array?");
+            System.out.print("Enter the maximum value for the array: ");
+            int max = scanner.nextInt();
+
+            // Generate the array with the specified size and range
+            int[] array = generateRandomArray(size, min, max);
+
+            System.out.println("\nDo you want to sort or search the array?\n");
             System.out.println("1. Sort the array");
             System.out.println("2. Search in the array");
             System.out.println("0. Exit");
@@ -68,7 +76,7 @@ public class app {
                 int choice = scanner.nextInt();
                 SearchingAlgorithmInterface searchingAlgorithm = getSearchingAlgorithm(choice);
 
-                System.out.print("Enter the target element to search for: ");
+                System.out.print("\nEnter the target element to search for: ");
                 int target = scanner.nextInt();
 
                 long startTime = System.currentTimeMillis();
@@ -80,7 +88,7 @@ public class app {
                 // Find all occurrences and indices
                 int[] indices = findOccurrences(array, target);
                 if (indices.length > 0) {
-                    System.out.println("Element " + target + " found at indices: " + Arrays.toString(indices));
+                    System.out.println("\nElement " + target + " found at indices: " + Arrays.toString(indices));
                     System.out.println("Element " + target + " was found " + indices.length + " time(s) in the array.");
                 } else {
                     System.out.println("Element not found in the array.");
@@ -152,13 +160,13 @@ public class app {
         return Arrays.copyOf(tempIndices, count); // Return the found indices
     }
 
-    // Generate a random array of size elements with values between 1 and 200
-    static int[] generateRandomArray(int size) {
+    // Generate a random array of size elements with values between min and max
+    static int[] generateRandomArray(int size, int min, int max) {
         Random random = new Random();
         int[] array = new int[size];
 
         for (int i = 0; i < size; i++) {
-            array[i] = random.nextInt(size) + 1; // Generates a random number between 1 and 200
+            array[i] = random.nextInt((max - min) + 1) + min; // Generate random number between min and max
         }
 
         System.out.println("\nGenerated Array: " + Arrays.toString(array));
