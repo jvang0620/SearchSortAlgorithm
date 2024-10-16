@@ -78,6 +78,10 @@ public class app {
 
                 if (resultIndex != -1) {
                     System.out.println("Element found at index: " + resultIndex);
+
+                    // Count occurrences of the target element
+                    int count = countOccurrences(array, target);
+                    System.out.println("Element " + target + " was found " + count + " time(s) in the array.");
                 } else {
                     System.out.println("Element not found in the array.");
                 }
@@ -131,6 +135,17 @@ public class app {
             default:
                 return new BinarySearch(); // Default searching
         }
+    }
+
+    // Count how many times the target element appears in the array
+    public static int countOccurrences(int[] array, int target) {
+        int count = 0;
+        for (int value : array) {
+            if (value == target) {
+                count++;
+            }
+        }
+        return count;
     }
 
     // Generate a random array of size elements with values between 1 and 200
