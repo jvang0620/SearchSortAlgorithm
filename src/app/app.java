@@ -72,16 +72,16 @@ public class app {
                 int target = scanner.nextInt();
 
                 long startTime = System.currentTimeMillis();
-                int resultIndex = searchingAlgorithm.search(array, target);
+                int resultIndex = searchingAlgorithm.search(array, target); // This can still be used for performance
+                                                                            // check
                 long endTime = System.currentTimeMillis();
                 long executionTime = endTime - startTime;
 
-                if (resultIndex != -1) {
-                    System.out.println("Element found at index: " + resultIndex);
-
-                    // Count occurrences of the target element
-                    int count = countOccurrences(array, target);
-                    System.out.println("Element " + target + " was found " + count + " time(s) in the array.");
+                // Find all occurrences and indices
+                int[] indices = findOccurrences(array, target);
+                if (indices.length > 0) {
+                    System.out.println("Element " + target + " found at indices: " + Arrays.toString(indices));
+                    System.out.println("Element " + target + " was found " + indices.length + " time(s) in the array.");
                 } else {
                     System.out.println("Element not found in the array.");
                 }
@@ -137,15 +137,19 @@ public class app {
         }
     }
 
-    // Count how many times the target element appears in the array
-    public static int countOccurrences(int[] array, int target) {
+    // Find all occurrences of the target element and return an array of indices
+    public static int[] findOccurrences(int[] array, int target) {
+        int[] tempIndices = new int[array.length]; // Temporary storage for indices
         int count = 0;
-        for (int value : array) {
-            if (value == target) {
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == target) {
+                tempIndices[count] = i;
                 count++;
             }
         }
-        return count;
+
+        return Arrays.copyOf(tempIndices, count); // Return the found indices
     }
 
     // Generate a random array of size elements with values between 1 and 200
