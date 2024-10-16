@@ -80,8 +80,6 @@ public class app {
                 int target = scanner.nextInt();
 
                 long startTime = System.currentTimeMillis();
-                int resultIndex = searchingAlgorithm.search(array, target); // This can still be used for performance
-                                                                            // check
                 long endTime = System.currentTimeMillis();
                 long executionTime = endTime - startTime;
 
