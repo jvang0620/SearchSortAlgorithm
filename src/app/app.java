@@ -84,11 +84,13 @@ public class app {
                 // Find all occurrences and indices
                 int[] indices = findOccurrences(array, target);
                 if (indices.length > 0) {
-                    System.out.println("\nElement " + target + " found at indices: " + Arrays.toString(indices));
+                    System.out.println("\nElement " + target + " found at indices: " + Arrays.toString(indices) + "\n");
                     System.out.println("Element " + target + " was found " + indices.length + " time(s) in the array.");
                 } else {
                     System.out.println("Element not found in the array.");
                 }
+
+                searchingAlgorithm.search(array, target);
 
                 long endTime = System.currentTimeMillis();
                 long executionTime = endTime - startTime;
