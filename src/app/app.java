@@ -80,8 +80,6 @@ public class app {
                 int target = scanner.nextInt();
 
                 long startTime = System.currentTimeMillis();
-                long endTime = System.currentTimeMillis();
-                long executionTime = endTime - startTime;
 
                 // Find all occurrences and indices
                 int[] indices = findOccurrences(array, target);
@@ -91,6 +89,9 @@ public class app {
                 } else {
                     System.out.println("Element not found in the array.");
                 }
+
+                long endTime = System.currentTimeMillis();
+                long executionTime = endTime - startTime;
 
                 System.out.println("Execution Time: " + executionTime + " milliseconds");
             }
