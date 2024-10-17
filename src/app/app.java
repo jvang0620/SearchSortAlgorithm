@@ -1,15 +1,16 @@
 package src.app;
 
 import java.util.Arrays;
-import java.util.Random;
 import java.util.Scanner;
 
-import src.sort_algorithms.*;
+import src.utilities.ArrayUtils;
+import src.utilities.ExecutionTimeUtils;
+import src.utilities.SortingUtils;
+import src.utilities.SearchingUtils;
 import src.algorithmsInterface.SearchingAlgorithmInterface;
 import src.algorithmsInterface.SortingAlgorithmInterface;
-import src.search_algorithms.*;
 
-public class app {
+public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean keepRunning = true;
@@ -42,7 +43,7 @@ public class app {
         System.out.print("Enter the maximum value for the array: ");
         int max = scanner.nextInt();
 
-        return generateRandomArray(size, min, max);
+        return ArrayUtils.generateRandomArray(size, min, max);
     }
 
     // Method to ask for the user's choice of operation (sort or search)
@@ -66,12 +67,13 @@ public class app {
         System.out.println("7. Shell Sort");
 
         int choice = scanner.nextInt();
-        SortingAlgorithmInterface sortingAlgorithm = getSortingAlgorithm(choice);
 
-        long startTime = System.currentTimeMillis();
-        sortingAlgorithm.sort(array);
-        long endTime = System.currentTimeMillis();
-        long executionTime = endTime - startTime;
+        SortingAlgorithmInterface sortingAlgorithm = SortingUtils.getSortingAlgorithm(choice);
+
+        // Use ExecutionTimeUtils to calculate execution time
+        long executionTime = ExecutionTimeUtils.calculateExecutionTime(() -> {
+            sortingAlgorithm.sort(array);
+        });
 
         System.out.println("Sorted Array: " + Arrays.toString(array));
         System.out.println("Execution Time: " + executionTime + " milliseconds");
@@ -90,7 +92,8 @@ public class app {
         System.out.println("8. Ternary Search");
 
         int choice = scanner.nextInt();
-        SearchingAlgorithmInterface searchingAlgorithm = getSearchingAlgorithm(choice);
+
+        SearchingAlgorithmInterface searchingAlgorithm = SearchingUtils.getSearchingAlgorithm(choice);
 
         System.out.print("\nEnter the target element to search for: ");
         int target = scanner.nextInt();
@@ -111,52 +114,6 @@ public class app {
         System.out.println("Execution Time: " + executionTime + " milliseconds");
     }
 
-    // Method to get the sorting algorithm based on the user's choice
-    public static SortingAlgorithmInterface getSortingAlgorithm(int choice) {
-        switch (choice) {
-            case 1:
-                return new BubbleSort();
-            case 2:
-                return new MergeSort();
-            case 3:
-                return new QuickSort();
-            case 4:
-                return new SelectionSort();
-            case 5:
-                return new InsertionSort();
-            case 6:
-                return new HeapSort();
-            case 7:
-                return new ShellSort();
-            default:
-                return new QuickSort(); // Default sorting
-        }
-    }
-
-    // Method to get the searching algorithm based on the user's choice
-    public static SearchingAlgorithmInterface getSearchingAlgorithm(int choice) {
-        switch (choice) {
-            case 1:
-                return new LinearSearch();
-            case 2:
-                return new BinarySearch();
-            case 3:
-                return new ExponentialSearch();
-            case 4:
-                return new FibonacciSearch();
-            case 5:
-                return new HashSearch();
-            case 6:
-                return new InterpolationSearch();
-            case 7:
-                return new JumpSearch();
-            case 8:
-                return new TernarySearch();
-            default:
-                return new BinarySearch(); // Default searching
-        }
-    }
-
     // Find all occurrences of the target element and return an array of indices
     public static int[] findOccurrences(int[] array, int target) {
         int[] tempIndices = new int[array.length]; // Temporary storage for indices
@@ -170,18 +127,5 @@ public class app {
         }
 
         return Arrays.copyOf(tempIndices, count); // Return the found indices
-    }
-
-    // Generate a random array of size elements with values between min and max
-    static int[] generateRandomArray(int size, int min, int max) {
-        Random random = new Random();
-        int[] array = new int[size];
-
-        for (int i = 0; i < size; i++) {
-            array[i] = random.nextInt((max - min) + 1) + min; // Generate random number between min and max
-        }
-
-        System.out.println("\nGenerated Array: " + Arrays.toString(array));
-        return array;
     }
 }
