@@ -10,7 +10,7 @@ import src.utilities.SearchingUtils;
 import src.algorithmsInterface.SearchingAlgorithmInterface;
 import src.algorithmsInterface.SortingAlgorithmInterface;
 
-public class App {
+public class app {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean keepRunning = true;
